@@ -45,6 +45,7 @@ namespace WindowsFormsApp3
             this.label6 = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.regexOptionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.メモToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tableLayoutPanel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -122,7 +123,6 @@ namespace WindowsFormsApp3
             this.textBox2.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.textBox2.Size = new System.Drawing.Size(536, 39);
             this.textBox2.TabIndex = 6;
-            this.textBox2.Text = "(\\d{4})/(\\d{2})";
             // 
             // label3
             // 
@@ -155,7 +155,6 @@ namespace WindowsFormsApp3
             this.textBox3.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.textBox3.Size = new System.Drawing.Size(536, 39);
             this.textBox3.TabIndex = 7;
-            this.textBox3.Text = "$1/$2";
             // 
             // label4
             // 
@@ -215,7 +214,8 @@ namespace WindowsFormsApp3
             // 
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.regexOptionToolStripMenuItem});
+            this.regexOptionToolStripMenuItem,
+            this.メモToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(695, 28);
@@ -228,6 +228,13 @@ namespace WindowsFormsApp3
             this.regexOptionToolStripMenuItem.Size = new System.Drawing.Size(137, 24);
             this.regexOptionToolStripMenuItem.Text = "正規表現オプション";
             // 
+            // メモToolStripMenuItem
+            // 
+            this.メモToolStripMenuItem.Name = "メモToolStripMenuItem";
+            this.メモToolStripMenuItem.Size = new System.Drawing.Size(45, 24);
+            this.メモToolStripMenuItem.Text = "メモ";
+            this.メモToolStripMenuItem.Click += new System.EventHandler(this.メモToolStripMenuItem_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -239,6 +246,7 @@ namespace WindowsFormsApp3
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
             this.Text = "クリップボード編集";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
@@ -266,6 +274,7 @@ namespace WindowsFormsApp3
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem regexOptionToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem メモToolStripMenuItem;
     }
 }
 

@@ -2,11 +2,16 @@
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using WindowsFormsClipboardWatcher;
+using System.Windows;
+using ClipboardEditor;
+using ClipboardEditor.Properties;
+
 namespace WindowsFormsApp3
 {
     public partial class Form1 : Form
     {
         private static DateTime runTime = DateTime.Now;
+        private Form f2 = new Form2();
         public Form1()
         {
             InitializeComponent();
@@ -29,6 +34,10 @@ namespace WindowsFormsApp3
 
             }
             ClipboardWatcherSetup();
+
+            textBox2.Text= Settings.Default.SearchString;
+            textBox3.Text = Settings.Default.ReplaceString;
+
         }
         private void ClipboardWatcherSetup()
         {
@@ -36,7 +45,11 @@ namespace WindowsFormsApp3
             {
                 DateTime dt = DateTime.Now;
                 TimeSpan ts = dt.Subtract(runTime);
-                if (ts.TotalSeconds < 1) return;
+                if (ts.TotalSeconds < 1)
+                {
+                    Clipboard.GetText();
+                    return;
+                }
                 runTime = dt;
                 if (InvokeRequired)
                 {
@@ -79,6 +92,19 @@ namespace WindowsFormsApp3
         {
 
             textBox2.Enabled = textBox3.Enabled = !checkBox1.Checked;
+        }
+
+        private void メモToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            f2.Visible = true;
+            f2.Activate();
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Settings.Default.SearchString = textBox2.Text;
+            Settings.Default.ReplaceString = textBox3.Text;
+            Settings.Default.Save();
         }
     }
 }

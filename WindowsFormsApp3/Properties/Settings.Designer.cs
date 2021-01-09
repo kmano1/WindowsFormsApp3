@@ -22,5 +22,29 @@ namespace ClipboardEditor.Properties {
                 return defaultInstance;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("^\\t*\\r\\n")]
+        public string SearchString {
+            get {
+                return ((string)(this["SearchString"]));
+            }
+            set {
+                this["SearchString"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string ReplaceString {
+            get {
+                return ((string)(this["ReplaceString"]));
+            }
+            set {
+                this["ReplaceString"] = value;
+            }
+        }
     }
 }
